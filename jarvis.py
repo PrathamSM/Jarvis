@@ -1,4 +1,5 @@
 import webbrowser
+import pyjokes
 import pyttsx3
 import speech_recognition as sr
 import datetime
@@ -73,8 +74,8 @@ if __name__ == '__main__':
             path = "%windir%\system32\notepad.exe"
             os.startfile(path)
 
-        elif "what is my mother name" in query:
-            speak("Your MOM Name is Neetu Murkute")
+        elif "How are You" in query:
+            speak("I am Good")
 
         elif "open command prompt" in query:
             os.system("start cmd")
@@ -106,8 +107,11 @@ if __name__ == '__main__':
             print(songs)
             os.startfile(os.path.join(music_dir, songs[3]))
 
-        elif "open google map" in query:
-            webbrowser.open("https://www.google.com/maps")
+        elif "my location" in query:
+            speak("Locating...")
+            url = "https://www.google.com/maps/search/where+am+I+?/"
+            webbrowser.get().open(url)
+            speak("Soo, there you are According to Google Maps")
 
         elif "play something interesting" in query:
             music_dir = 'C:\Jarvis songs'
@@ -126,6 +130,10 @@ if __name__ == '__main__':
             results = wikipedia.summary(query,sentences = 2)
             speak("According to wikipedia")
             speak(results)
+        elif "tell me a joke" in query:
+            _joke = pyjokes.get_joke()
+            print(_joke)
+            speak(_joke)
 
         elif "open youtube" in query:
             webbrowser.open("https://www.youtube.com/")
@@ -140,6 +148,10 @@ if __name__ == '__main__':
             speak("What should i search on google")
             cm = takecommand().lower()
             webbrowser.open(f"{cm}")
+
+        elif "open gmail" in query:
+            speak("opening gmail")
+            webbrowser.open("www.gmail.com")
 
         # elif "send message" in query:
         #     kit.sendwhatmsg("+9100000000","this is my testing message",2,25)
