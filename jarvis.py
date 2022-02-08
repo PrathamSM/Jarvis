@@ -167,5 +167,7 @@ if __name__ == '__main__':
             sys.exit()
         elif "play movies" in query:
             speak("onn the wayyy")
+            path = "C:\manoranjan\HARRY POTTER ALL PARTS"
+            os.startfile(path)
 
         speak("Sir ji , do you have any other Work?")
